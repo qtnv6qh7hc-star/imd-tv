@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId = "org.imdtv.iptvtv"
-        minSdk = 26
+        minSdk = 25
         targetSdk = 35
         versionCode = 10
         versionName = "0.6.0"
@@ -53,6 +53,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -72,6 +73,7 @@ ksp {
 }
 
 dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3")
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.foundation)
