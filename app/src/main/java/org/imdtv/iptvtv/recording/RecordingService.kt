@@ -122,6 +122,7 @@ class RecordingService : Service() {
         fun start(context: Context, id: Long) {
             val intent = Intent(context, RecordingService::class.java).setAction(ACTION_START).putExtra(EXTRA_ID, id)
             if (Build.VERSION.SDK_INT >= 26) context.startForegroundService(intent) else context.startService(intent)
+    }
 
         fun stop(context: Context, id: Long) = context.startService(
             Intent(context, RecordingService::class.java).setAction(ACTION_STOP).putExtra(EXTRA_ID, id))
